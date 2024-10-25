@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Vista de Lista Modelo Dispositivos -->
+
+    <record id="view_device_model_tree" model="ir.ui.view">
+        <field name="name">devices.model.tree</field>
+        <field name="model">devices.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="flespi_id"/>
+                <field name="fecha_obtencion"/>
+                <field name="name"/>
+                <field name="imei"/>
+                <field name="device_type"/>
+                <field name="company_id"/>
+            </tree>
+        </field>
+    </record>
+
+<!-- Vista de Formulario Modelo Dispositivo -->
+
+    <record id="view_device_model_form" model="ir.ui.view">
+        <field name="name">devices.model.form</field>
+        <field name="model">devices.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable':'1'}" statusbar_visible="draft,unavailable,available" />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="flespi_id"/>
+                            <field name="name"/>
+                            <field name="imei"/>
+                            <field name="asignado"/>
+                        </group>
+                        <group>  
+                            <field name="fecha_obtencion"/>
+                            <field name="device_type"/>
+                            <field name="fleet_id"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids" options="{'post_refrest': 'recipients'}"/>
+                </div>      
+            </form>
+        </field>
+    </record>
+
+<!-- Definicion de Action para el Modelo Dispositivos -->
+    <record id="action_device_model" model="ir.actions.act_window"> 
+        <field name="name">Dispositivos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">devices.model</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_filter_active':1}</field>
+    </record>
+
+<!-- Definicion de Menu Item Dispositivos -> Modelo Dispositivos -->
+    <menuitem id="menu_devices_item"
+              name="Dispositivos"
+              parent="menu_devices_model_root"
+              action="action_device_model"
+              sequence="10"/>
+</odoo>

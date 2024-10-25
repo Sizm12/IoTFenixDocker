@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!-- Vista de Lista Modelo Tipos de Dispositivos -->
+
+    <record id="view_device_type_model_tree" model="ir.ui.view">
+        <field name="name">device.type.model.tree</field>
+        <field name="model">device.type.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="proveedor"/>
+                <field name="modelo"/>
+            </tree>
+        </field>
+    </record>
+
+<!-- Vista de Formulario Modelo Tipos de Dispositivo -->
+
+    <record id="view_device_type_model_form" model="ir.ui.view">
+        <field name="name">device.type.model.form</field>
+        <field name="model">device.type.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="proveedor"/>
+                            <field name="modelo"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids" options="{'post_refrest': 'recipients'}"/>
+                </div>      
+            </form>
+        </field>
+    </record>
+
+<!-- Definicion de Action para el Modelo Tipos Dispositivos -->
+    <record id="action_device_type_model" model="ir.actions.act_window"> 
+        <field name="name">Tipos de Dispositivos</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">device.type.model</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_filter_active':1}</field>
+    </record>
+
+<!-- Definicion de Menu Item Tipos de Dispositivos -> Modelo Dispositivos -->
+    <menuitem id="menu_devices_type"
+              name="Tipos de Dispositivos"
+              parent="menu_devices_model_root"
+              action="action_device_type_model"
+              sequence="12"/>
+</odoo>

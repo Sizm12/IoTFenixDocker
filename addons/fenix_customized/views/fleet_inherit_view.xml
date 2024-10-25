@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <record id="fleet_inherit" model="ir.ui.view">
+        <field name="name">fleet.inherit</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form" />
+        <field name="arch" type="xml">
+            <field name="location" position="after">
+                <field name="vin" />
+            </field>
+
+            <field name="next_assignation_date" position="after">
+                <field name="device_id" />
+            </field>
+
+            <field name="color" position="after">
+                <field name="image" widget="image" class="oe_left oe_avatar" />
+            </field>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+fenix_integration.access_device_type_model,access_device_type_model,fenix_integration.model_device_type_model,base.group_user,1,1,1,1
+fenix_integration.access_devices_model,access_devices_model,fenix_integration.model_devices_model,base.group_user,1,1,1,1
+fenix_integration.access_roles_model,access_roles_model,fenix_integration.model_roles_model,base.group_user,1,1,1,1
+fenix_integration.access_views_model,access_views_model,fenix_integration.model_views_model,base.group_user,1,1,1,1
